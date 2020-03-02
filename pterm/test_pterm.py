@@ -202,7 +202,7 @@ def test_create_k8s_profiles():
 
     config = cluster_config('foo')
     profile = create_k8s_profile(config, '/dev/null', aws_profiles)
-    assert 'AWS_PROFILE=source-profile' in profile['Command']
+    assert 'AWS_PROFILE=aws-profile' in profile['Command']
 
     case = '''
         [profile aws-profile]
