@@ -7,7 +7,12 @@ import shutil
 import collections
 import difflib
 import tempfile
-from sh import vault
+
+has_vault = True
+try:
+    from sh import vault
+except ImportError:
+    has_vault = False
 
 
 def sort_aws_config(path, dry=False):
@@ -341,6 +346,8 @@ def create_k8s_profile(this, cfg, aws_profiles):
 
 
 def create_vault_profile(name):
+    if not has_vault:
+        return {}
     new = create_profile(
         name,
         change_title=False,
