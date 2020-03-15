@@ -343,18 +343,14 @@ def find_source_profile(profile, aws_profiles):
         if x.get('Name') == profile
     ]
     try:
-        this_aws_profile[0]
+        this_aws_profile = this_aws_profile[0]
     except IndexError:
         print(f"Error, profile ${profile} not found in aws config")
         return None
 
-    aws_profile_tags = [
-        x for x in aws_profiles
-        if x['Name'] == profile
-    ][0]['Tags']
     return [
         x.replace('source_profile_', '')
-        for x in aws_profile_tags
+        for x in this_aws_profile['Tags']
         if x is not None and x.startswith('source_profile_')
     ][0]
 
