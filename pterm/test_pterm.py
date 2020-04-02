@@ -274,4 +274,3 @@ def test_find_source_profile():
         assert find_source_profile(profile, profiles) == result
 
     pass
-
