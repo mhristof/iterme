@@ -25,7 +25,8 @@ jobs:
         flake8 . --count --exit-zero --max-complexity=10 --max-line-length=127 --statistics
     - name: Install
       run: |
-        pip install --user .
+        make dist
+        pip install --user dist/pterm*py3-none-any.whl
         pterm -h
       env:
         PATH: ~/.local/bin:$PATH
