@@ -15,3 +15,9 @@ jobs:
         python-version: 3.7
     - name: Install dependencies
       run: pip install -r requirements.txt
+    - name: Run the tests
+      run:|
+        security || true
+        pip install --user .
+        pterm -h
+
