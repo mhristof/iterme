@@ -17,7 +17,7 @@ jobs:
       run: pip install -r requirements.txt
     - name: Run the tests
       run: |
-        security || true
         pip install --user .
+        export PATH=~/.local/bin:$PATH
         pterm -h
 
