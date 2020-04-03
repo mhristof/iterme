@@ -14,7 +14,12 @@ import difflib
 import tempfile
 import boto3
 import sh
-from sh import security  # pylint: disable=no-name-in-module
+
+HAS_SECURITY = True
+try:
+    from sh import security  # pylint: disable=no-name-in-module
+except ImportError:
+    HAS_SECURITY = False
 
 HAS_VAULT = True
 try:
