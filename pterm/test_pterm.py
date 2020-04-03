@@ -13,7 +13,12 @@ import re
 import os
 import yaml
 import pterm
+import pytest
 
+try:
+    from sh import security
+except ImportError:
+    pass
 
 def create_config(contents):
     temp = tempfile.NamedTemporaryFile(mode='w', delete=False)
