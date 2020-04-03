@@ -31,7 +31,7 @@ jobs:
         pip install --user dist/pterm*py3-none-any.whl
         pterm -h
       env:
-        PATH: ~/.local/bin:$PATH
+      PATH: ~/.local/bin:/usr/bin:$PATH
     - name: pytest
       run: make pytest
     - name: install vault
