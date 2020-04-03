@@ -20,6 +20,9 @@ dist:
 	python3 setup.py sdist bdist_wheel
 .PHONY: dist
 
+keychain:
+	./bin/keychain
+
 all:
 	@echo "Makefile needs your attention"
 

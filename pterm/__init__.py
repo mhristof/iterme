@@ -427,15 +427,17 @@ def get_keys_from_file(csv):
     return access, secret
 
 
+def cache():
+    return 'pterm-iam-list'
+
 def generate_key_profiles(creds, keychain):
     """Create the AWS profiles from credentials the user has stored."""
     ret = []
 
-    cache = 'pterm-iam-list'
     if creds is not None:
-        profile_from_creds(creds, keychain, cache)
+        profile_from_creds(creds, keychain, cache())
 
-    arns = security_find(cache)
+    arns = security_find(cache())
 
     for arn in json.loads(arns):
         ret += [profile_from_arn(arn)]
