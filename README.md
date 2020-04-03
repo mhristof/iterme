@@ -28,4 +28,3 @@ pip install pterm
 ```
 pterm -h
 ```
-
