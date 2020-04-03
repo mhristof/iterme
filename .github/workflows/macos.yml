@@ -20,4 +20,5 @@ jobs:
         pip install --user .
         export PATH=~/.local/bin:$PATH
         pterm -h
+        security list-keychains
 
